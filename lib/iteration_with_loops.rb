@@ -3,35 +3,35 @@ require "pry"
 def find_min_in_nested_arrays(src)
   # src will be an array of arrays of integers
   # Produce a new Array that contains the smallest number of each of the nested arrays
-  #  binding.pry
-
+  
+ newArray = []
 # Set position for outer array
- count = 0 
+ outer_array_index = 0 
 
 #  Iterate over large array
- while count < src.length do
-  newArray = []
-
+ while outer_array_index < src.length do
+  
   # set position for inner array
-  innerCOunt = 0
+ inner_array_index = 0
 
-  # Lowest value - set equal to the first element
-  lowestVal = src[count][innerCOunt][0]
-
-  while innerCOunt < src[count].length do
-    currentVal = src[count][innerCOunt]
+  # Lowest value 
+  lowestVal = 100
+  
+  while inner_array_index < src[outer_array_index].length do
+    
+    currentVal = src[outer_array_index][inner_array_index]
 
     if currentVal < lowestVal
       lowestVal = currentVal
+      # binding.pry
     end
     
-    innerCOunt += 1
+    inner_array_index += 1
   end
-
-    count += 1
     newArray << lowestVal
+    outer_array_index += 1
+   
  end
 
- newArray
-
+newArray
 end
